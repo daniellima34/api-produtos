@@ -1,11 +1,13 @@
 const express = require('express')
+require('detenv').config()
 const cors =  require('cors')
 const app = express()
-const port = 6579;
+const port =  process.env.PORT || 6579;
 require('./src/models')
 const produtosRoutes = require('./src/routes/produtos')
 const usersRoutes = require('./src/routes/users')
 const authRoutes = require('./src/routes/auth')
+const { config } = require('dotenv')
 
 app.use(cors())
 app.use(express.json())
